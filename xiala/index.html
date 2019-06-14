@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<title>ishmael</title>
+	<style>
+		.selectWarp{
+			position:relative;
+			margin:0 auto;
+			width:200px;
+			height:32px;
+		}
+		.inputBox input{
+			padding:2px 12px;
+			width:200px;
+			height:32px;
+			outline:none;
+			box-sizing:border-box;
+		}
+		ul{
+			position:absolute;
+			width:300px;
+			height:auto;
+			max-height:182px;
+			overflow-x:hidden;
+			overflow-y:auto;
+			box-sizing:border-box;
+			border:1px solid #000;
+			border-top:none;
+		}
+		ul li{
+			padding:5px 8px;
+			list-style:none;
+			font-size:14px;
+		}
+		ul li:hover{
+			background-color:#1488f5;
+		}
+	</style>
+</head>
+<body>
+<form action="input_select.php" method="POST">
+  <select name="products[]" multiple>
+    <option>option1
+    <option>option2
+    <option>option3
+    <option>option4
+	<option>option5
+    <option>option6
+    <option>option7
+  </select>
+<div class="selectWarp">
+	<div class="inputBox"><input type="text" name= "select_sd" id="input" value="请选择"/></div>
+<ul>
+    <li class="option">
+        奥莱购
+    </li>
+    <li class="option">
+        北京吉元安踏ANTA专卖店
+    </li>
+    <li class="option">
+        北京吉元安踏儿童京东专卖店
+    </li>
+    <li class="option">
+        福州安鸿安踏淘宝专卖店
+    </li>
+    <li class="option">
+        福州安永安踏京东专卖店
+    </li>
+    <li class="option">
+        贵阳安凯安踏儿童奔跑者专卖店
+    </li>
+    <li class="option">
+        杭州健驰儿童宏然专卖店
+    </li>
+    <li class="option">
+        济南安创安踏斐宏京东专卖店
+    </li>
+    <li class="option">
+        南昌炫踏京东安踏专卖店
+    </li>
+    <li class="option">
+        南昌炫踏天猫安踏专卖店
+    </li>
+    <li class="option">
+        南京新凝动安踏京东专卖店
+    </li>
+    <li class="option">
+        泉州斌辉安踏京东专卖店
+    </li>
+    <li class="option">
+        上海安驰安踏京东专卖店
+    </li>
+    <li class="option">
+        深圳跨域安踏奥莱购专卖店
+    </li>
+    <li class="option">
+        深圳勇跃安踏专卖店
+    </li>
+    <li class="option">
+        四川安大安建立天猫专卖店
+    </li>
+    <li class="option">
+        四川安踏淘宝儿童专卖店
+    </li>
+    <li class="option">
+        苏宁易购安踏官方旗舰店
+    </li>
+    <li class="option">
+        武汉尚雄安踏爱运动专卖店
+    </li>
+    <li class="option">
+        武汉尚雄安踏京东专卖店
+    </li>
+    <li class="option">
+        郑州安发安踏京东专卖店
+    </li>
+    <li class="option">
+        郑州安发安踏淘宝专卖店
+    </li>
+</ul>
+</div>
+  <input type="submit" value="提交">
+</form>
+
+<script>
+	//选项点击选择
+	$(".option").click(function(){
+		$("#input").val($(this).text());
+	})
+	//监测输入框输入
+	$('#input').bind('input propertychange', function() {
+		//创建正则表达式
+		var patt=new RegExp($("#input").val(),"i");
+		var num = $(this).val().length;
+		if(num==0){
+			$(".option").css("display","block");
+		}else{
+			//遍历下拉选项匹配输入框输入的
+			$(".option").each(function(){
+				if(patt.test($(this).text())){
+					$(this).css("display","block");
+				}else{
+					$(this).css("display","none");
+				}
+			})
+		}
+	});
+</script>
+</body>
+</html>
+
+ 
+ 
+ 
+
